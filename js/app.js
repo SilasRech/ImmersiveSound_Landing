@@ -9,7 +9,7 @@ context.onstatechange = function() {
     if (context.state === "suspended") { context.resume(); }
 }
 
-var soundUrl = "/src/Sample_8.ogg";
+var soundUrl = "/src/Sample_8.mp3";
 var irUrl_0 = "IRs/ambisonic2binaural_filters/HOA3_IRC_1008_virtual.wav";
 
 //Not used
@@ -65,7 +65,7 @@ loader_filters.load();
 
 $(document).ready(function() {
     // update sample list for selection
-    var sampleList = {  "Hyva Elamaa": "/src/Sample_8.wav",
+    var sampleList = {  "Hyva Elamaa": "/src/Sample_8.mp3",
     };
     var $el = $("#sample_no");
     $el.empty(); // remove old options
