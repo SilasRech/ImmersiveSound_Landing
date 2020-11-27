@@ -37,6 +37,7 @@ div{
   align-items: center;
   font-size: 1rem;
   z-index: 5;
+  margin: 10px;
 }
 #info{
   display: flex;
@@ -44,6 +45,12 @@ div{
   align-items: center;
   font-size: 1rem;
   z-index: 5;
+  margin: 10px;
+}
+
+#volume-slider{
+  z-index: 5;
+  margin: 10px;
 }
 
 #play,
@@ -54,7 +61,7 @@ div{
   padding: 0.5rem;
   cursor: pointer;
   font-size: 2rem;
-  margin: 0.25rem;
+  margin: 10px;
   z-index: 5;
 }
 #play{
