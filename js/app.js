@@ -9,7 +9,7 @@ context.onstatechange = function() {
     if (context.state === "suspended") { context.resume(); }
 }
 
-var soundUrl = "/src/Sample_8.wav";
+var soundUrl = "/src/Sample_8.ogg";
 var irUrl_0 = "IRs/ambisonic2binaural_filters/HOA3_IRC_1008_virtual.wav";
 
 //Not used
