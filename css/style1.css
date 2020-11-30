@@ -1,0 +1,83 @@
+@font-face {
+    font-family: head;
+    src: url("/src/fonts/ABSTER.otf") format("opentype");
+}
+
+#title{
+  font-family: head;
+  font-size: 14pt;
+}
+
+body{
+  color: white;
+  min-height: 100vh;
+  padding-top: 3em;
+  background: url("./src/images/galaxy_starfield.png") no-repeat center center fixed;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #555f66;
+  font-family: 'Space Mono', monospace;
+  font-size: 14pt;
+  font-weight: 300;
+  line-height: 1.75em;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+}
+
+#loading_info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  z-index: 5;
+  margin: 10px;
+}
+#info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  z-index: 5;
+  margin: 10px;
+}
+
+#volume-slider{
+  z-index: 5;
+  margin: 10px;
+}
+
+#play,
+#stop, #reset{
+  background: #002169;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 10px;
+  z-index: 5;
+}
+#play{
+  background: rgb(73,204,73);
+}
+#stop{
+  background: rgb(212,0,0);
+}
+
+#stop:disabled,
+#stop[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#play:disabled,
+#play[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}

@@ -9,7 +9,7 @@ context.onstatechange = function() {
     if (context.state === "suspended") { context.resume(); }
 }
 
-var soundUrl = "/src/Sample_8.mp3";
+var soundUrl = "/src/Sample_8.wav";
 var irUrl_0 = "IRs/ambisonic2binaural_filters/HOA3_IRC_1008_virtual.wav";
 
 //Not used
@@ -92,11 +92,8 @@ $(document).ready(function() {
     });
 
     document.getElementById('reset').addEventListener('click', function() {
-      camera.position.set(camToSave.position.x, camToSave.position.y, camToSave.position.z);
-      camera.rotation.set(camToSave.rotation.x, camToSave.rotation.y, camToSave.rotation.z);
+      controls.lock();
 
-      controls.target.set(camToSave.controlCenter.x, camToSave.controlCenter.y, camToSave.controlCenter.z);
-      controls.update();
     });
 
 });
