@@ -40,8 +40,8 @@ THREE.PointerLockControls = function ( camera, domElement ) {
 
 		euler.setFromQuaternion( camera.quaternion );
 
-		euler.y -= movementX * 0.0009;
-		euler.x -= movementY * 0.0009;
+		euler.y -= movementX * 0.0007;
+		euler.x -= movementY * 0.0007;
 
 		euler.x = Math.max( PI_2 - scope.maxPolarAngle, Math.min( PI_2 - scope.minPolarAngle, euler.x ) );
 
