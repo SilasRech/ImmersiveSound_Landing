@@ -76,12 +76,13 @@
         var vector = new THREE.Vector3();
         var q = new THREE.Vector4();
         var direction_init = new THREE.Vector3(0, 0, 1);
-        var direction_reset = new THREE.Vector3(-3.14, 0, -3.14);
+        var direction_1 = new THREE.Vector3(0, 0, -1);
         rotation_vec = [0,0,0];
+        var index_old = 0;
 
         // Create Textures for Planets and Stars
        const texture = new THREE.TextureLoader().load("./src/images/jupiter_texture.jpg");
-       const texture_stars = new THREE.TextureLoader().load(".src/images/galaxy_starfield.png");
+       const texture_stars = new THREE.TextureLoader().load("./src/images/galaxy_starfield.png");
 
   			init();
   			animate();
@@ -93,7 +94,6 @@
           camera.position.y = 200;
 
   				scene = new THREE.Scene();
-          var texture_stars = new THREE.TextureLoader().load(".src/images/galaxy_starfield.png");
           scene.background = texture_stars;
   				scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
 
@@ -182,16 +182,28 @@
 
             camera.updateMatrixWorld();
 
-            var rotation = new THREE.Euler().setFromQuaternion(camera.quaternion);
+            var rotation = camera.getWorldDirection(direction_1)
+            //console.log(camera.getWorldDirection(direction_1));
 
-            rotation_vec[0] = camera.rotation.x*180/3.141592653 +180 % 180;
-            rotation_vec[1]= camera.rotation.y*180/3.141592653  +180 % 180;
-            rotation_vec[2] = 0, // camera.rotation.z;//*180/3.141592653 +180 % 180;
 
+            //console.log(rotation);
+            rotation_vec[0] = rotation.x*-90;
+            rotation_vec[1]= rotation.y*90;
+
+            //console.log("Index OLD:" + index_old);
+            if (rotation_vec[0] < index_old && rotation_vec[0] > 0 ) {
+                  rotation_vec[0] = 180 - rotation_vec[0];
+              }
+            if (rotation_vec[1] > index_old && rotation_vec[0] < 0 ) {
+                rotation_vec[0] = -180 + rotation_vec[0]*(-1);
+            }
+            index_old = rotation_vec[0];
+
+            //console.log(rotation_vec[1]);
             //Update the Rotationvector for the Ambisonics
             rotator.yaw = rotation_vec[0];
             rotator.pitch = rotation_vec[1];
-            rotator.roll = rotation_vec[2];
+            rotator.roll = 0;
             rotator.updateRotMtx();
 
             //console.log(x);
